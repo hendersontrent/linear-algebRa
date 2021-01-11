@@ -12,13 +12,17 @@ NumericMatrix scalarmul(NumericMatrix A, double x){
   
   // Get matrix size
   
-  NumericMatrix::Row m = A(1 , _ ).size();
-  NumericMatrix::Column n = A( _ , 1).size();
+  int row = A.nrow();
+  int col = A.ncol();
   
   // Instantiate new matrix to be empty
   
-  for(int i = 0; i < m; ++i){
-    for(int j = 0; j < n; ++j){
-      scalarmult[i][j] = 0;
+  NumericMatrix B(row, col);
+  
+  for(int i = 0; i < row; ++i){
+    for(int j = 0; j < col; ++j){
+      B[i][j] = A[i][j]*x;
     }
-  }
+    
+  return B;
+}
