@@ -23,6 +23,5 @@ NumericMatrix scalarmul(NumericMatrix A, double x){
     for(int j = 0; j < col; ++j){
       B[i][j] = A[i][j]*x;
     }
-    
   return B;
 }
